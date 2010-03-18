@@ -44,6 +44,7 @@ class NavegaPucv:
         self.reFilas = re.compile("<td(.?)>(.+?)</td>")
         self.reBloques = re.compile("(\d+)(.+?) - (\d+)")
         self.reSala = re.compile("<a(.+?)>(.+?)</a>")
+        self.periodo = ''
 
     def conectar(self):
         request = urllib2.Request("https://nave10.ucv.cl/inicio/signon.php", self.params)
@@ -53,7 +54,7 @@ class NavegaPucv:
         reLogin = re.compile("El usuario y/o clave no existen")
         login = reLogin.findall(text)
         if login:
-            raise ErrorEnLogin
+            return False
         # Se guarda la sesion valida para usarla despues
         self.CJ.extract_cookies(f, request)
         self.conectado = True
@@ -73,6 +74,17 @@ class NavegaPucv:
         self.CJ.add_cookie_header(request)
         f = urllib2.urlopen(request)
         texto = f.read()
+        # En que periodo de clases.?
+        rePeriodo = re.compile("<strong>Período:</strong>(.+?)&nbsp;")
+        periodo = rePeriodo.findall(texto)
+        if periodo:
+            periodo = periodo[0]
+            periodo = periodo.strip()
+        else:
+            periodo = ''
+
+        self.periodo = periodo
+
         reCursos = re.compile("javascript:enviar_curso\('(\d+)','(\d+)','(\d+)','(\d+)','(\d+)'")
         cursos = reCursos.findall(texto)
         if not cursos:
