@@ -4,6 +4,7 @@ from PyQt4 import QtCore, QtGui
 import re
 import urllib
 import urllib2
+import webbrowser
 import cookielib
 import data_rc
 import sip
@@ -36,8 +37,6 @@ class Worker(QtCore.QThread):
         cursos = self.np.descargarListaCursos()
         self.emit(QtCore.SIGNAL("actProgreso(int)"),15)
 
-        # En que periodo de clases.?
-
         numeroCursos = len(cursos)
 
         if numeroCursos == 0:
@@ -51,7 +50,6 @@ class Worker(QtCore.QThread):
 
         avancePorCurso = 60/numeroCursos
         progreso = 20
-
         lista = list()
         ramos = list()
 
@@ -116,12 +114,16 @@ class Ui_MainWindow(object):
 
     def listo(self):
         mb = QtGui.QMessageBox(self.MainWindow)
+        QtCore.QObject.connect(mb, QtCore.SIGNAL("buttonClicked(QAbstractButton*)"), self.OKPresionado)
         mb.setWindowTitle("Información:")
-        mb.setText("Tu horario se ha descargado correctamente.\nAbre el archivo horario.html para verlo.")
+        mb.setText("Tu horario se ha descargado correctamente.\nPresiona OK para verlo en tu explorador.")
         mb.setIcon(QtGui.QMessageBox.Information)
         mb.show()
         self.groupBox.setEnabled(1)
 
+    def OKPresionado(self,boton):
+        webbrowser.open("horario.html")
+        
     def conectar(self):
         self.groupBox.setEnabled(0)
         self.lv_output.clear()
@@ -142,8 +144,6 @@ class Ui_MainWindow(object):
             return
         self.thread.iniciar(self.rut_num.text(), self.rut_dv.text(),
             self.password.text())
-
-#        print '\nHorario listo. Abre el archivo horario.html para ver tu horario.'
 
     def setupUi(self, MainWindow):
         self.thread = Worker()
@@ -272,7 +272,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "Horario Pucv v" + version, None, QtGui.QApplication.UnicodeUTF8))
+        MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "HorarioPucv v" + version, None, QtGui.QApplication.UnicodeUTF8))
         self.groupBox.setTitle(QtGui.QApplication.translate("MainWindow", "Login", None, QtGui.QApplication.UnicodeUTF8))
         self.lbl_rut.setText(QtGui.QApplication.translate("MainWindow", "Rut:", None, QtGui.QApplication.UnicodeUTF8))
         self.lbl_separador.setText(QtGui.QApplication.translate("MainWindow", " - ", None, QtGui.QApplication.UnicodeUTF8))
