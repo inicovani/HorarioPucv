@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> Horario </TITLE>
+	<style type="text/css">
+		@import url("meremories.css");
+	</style>
+	<script type="text/javascript" src="horario.js"></script>
+
+ </HEAD>
+
+ <BODY onLoad="cargarHorario()">
+ <div align="center">
+ <h1>Horario <span id="periodo"></span></h1>
+ <table width="100%" border="0" cellpadding="3" cellspacing="0">
+ <tr>
+	<td width="70%" valign="top">
+	  <TABLE width="90&percnt;" border="1" cellpadding="0" cellspacing="0" align="center">
+		<TR>
+			<TD class=""></TD>
+			<TD class="titulo_td">Lunes</TD>
+			<TD class="titulo_td">Martes</TD>
+			<TD class="titulo_td">Mi&eacute;rcoles</TD>
+			<TD class="titulo_td">Jueves</TD>
+			<TD class="titulo_td">Viernes</TD>
+			<TD class="titulo_td">S&aacute;bado</TD>
+		</TR>
+		<TR>
+			<TD class="titulo_td">1 - 2</TD>
+			<TD id="1-1" class="td_inactivo"></TD>
+			<TD id="2-1" class="td_inactivo"></TD>
+			<TD id="3-1" class="td_inactivo"></TD>
+			<TD id="4-1" class="td_inactivo"></TD>
+			<TD id="5-1" class="td_inactivo"></TD>
+			<TD id="6-1" class="td_inactivo"></TD>
+		</TR>
+		<TR>
+			<TD class="titulo_td">3 - 4</TD>
+			<TD id="1-3" class="td_inactivo"></TD>
+			<TD id="2-3" class="td_inactivo"></TD>
+			<TD id="3-3" class="td_inactivo"></TD>
+			<TD id="4-3" class="td_inactivo"></TD>
+			<TD id="5-3" class="td_inactivo"></TD>
+			<TD id="6-3" class="td_inactivo"></TD>
+		</TR>
+		<TR>
+			<TD class="titulo_td">5 - 6</TD>
+			<TD id="1-5" class="td_inactivo"></TD>
+			<TD id="2-5" class="td_inactivo"></TD>
+			<TD id="3-5" class="td_inactivo"></TD>
+			<TD id="4-5" class="td_inactivo"></TD>
+			<TD id="5-5" class="td_inactivo"></TD>
+			<TD id="6-5" class="td_inactivo"></TD>
+		</TR>
+		<TR>
+			<TD class="titulo_td">7 - 8</TD>
+			<TD id="1-7" class="td_inactivo"></TD>
+			<TD id="2-7" class="td_inactivo"></TD>
+			<TD id="3-7" class="td_inactivo"></TD>
+			<TD id="4-7" class="td_inactivo"></TD>
+			<TD id="5-7" class="td_inactivo"></TD>
+			<TD id="6-7" class="td_inactivo"></TD>
+		</TR>
+		<TR>
+			<TD class="titulo_td">9 - 10</TD>
+			<TD id="1-9" class="td_inactivo"></TD>
+			<TD id="2-9" class="td_inactivo"></TD>
+			<TD id="3-9" class="td_inactivo"></TD>
+			<TD id="4-9" class="td_inactivo"></TD>
+			<TD id="5-9" class="td_inactivo"></TD>
+			<TD id="6-9" class="td_inactivo"></TD>
+		</TR>
+		<TR>
+			<TD class="titulo_td">11 - 12</TD>
+			<TD id="1-11" class="td_inactivo"></TD>
+			<TD id="2-11" class="td_inactivo"></TD>
+			<TD id="3-11" class="td_inactivo"></TD>
+			<TD id="4-11" class="td_inactivo"></TD>
+			<TD id="5-11" class="td_inactivo"></TD>
+			<TD id="6-11" class="td_inactivo"></TD>
+		</TR>
+		<TR>
+			<TD class="titulo_td">13 - 14</TD>
+			<TD id="1-13" class="td_inactivo"></TD>
+			<TD id="2-13" class="td_inactivo"></TD>
+			<TD id="3-13" class="td_inactivo"></TD>
+			<TD id="4-13" class="td_inactivo"></TD>
+			<TD id="5-13" class="td_inactivo"></TD>
+			<TD id="6-13" class="td_inactivo"></TD>
+		</TR>
+	</TABLE>
+	</td>
+	<td valign="top">
+		<table width="80%" border="1" cellpadding="0" cellspacing="0" align="center">
+		<tr>
+			<td class="titulo_td" colspan="2">Simbolog&iacute;a Horario</td>
+		</tr>
+		<tr>
+			<td class="td_inactivo"></td>
+			<td>Sin asignar</td>
+		</tr>
+		<tr>
+			<td class="td_catedra"></td>
+			<td>C&aacute;tedra</td>
+		</tr>
+		<tr>
+			<td class="td_ayudantia"></td>
+			<td>Ayudant&iacute;a</td>
+		</tr>
+		<tr>
+			<td class="td_tope"></td>
+			<td>Tope de Horario</td>
+		</tr>
+		</table>
+		<br>
+		<span id="siglas">
+		</span>
+	</td>
+</tr>
+</table>
+<hr>
+<div class="creditos" id="creditos">horario_pucv v<span id="version"></span><br>&#169; 2009 Ignacio Nicovani C.<br>thanagrim@gmail.com</div>
+</BODY>
+</HTML>

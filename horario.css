@@ -1,0 +1,15 @@
+body { margin: 0px;	padding: 0px;}
+a { color: #cc9900; text-decoration: none; }
+a:visited { color: #cc9900; text-decoration: none;}
+a:hover { color: #cc9900;  text-decoration: underline; }
+h1 { letter-spacing: 5px; word-spacing: 8px; }
+.titulo_td { font-family: Calibri, Arial; font-size:13px;color: #fc6; text-align: center; background: url(fondo_td_titulo.png) repeat}
+/* horario */
+table td { height: 45px; text-align: center;font-family: Arial;font-size:11px; color: #000}
+.td_inactivo { background-color: #FFF;}
+.td_catedra { width: 15%; background-color: #FF9933;}
+.td_ayudantia { width: 15%; background-color: #33CC33;}
+.td_tope { width: 15%; background-color: #F00;}
+
+/* inferior */
+.creditos { font-family: Calibri, Arial; font-size:13px; text-align: center; color: #cc9900 }
