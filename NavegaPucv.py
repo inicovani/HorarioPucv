@@ -4,8 +4,8 @@ import urllib
 import urllib2
 import cookielib
 import re
-import sys
 
+"""
 class MyHTTPRedirectHandler(urllib2.HTTPRedirectHandler):
     def http_error_302(self, req, fp, code, msg, headers):
         if str(headers).find('nofoto.JPG'):
@@ -16,7 +16,6 @@ class MyHTTPRedirectHandler(urllib2.HTTPRedirectHandler):
 
 opener = urllib2.build_opener(MyHTTPRedirectHandler)
 urllib2.install_opener(opener)
-
 class NoFotoError(Exception):
     def __init__(self, msg = "No tiene foto."):
         self.msg = msg
@@ -28,6 +27,7 @@ class ErrorEnLogin(Exception):
         self.msg = msg
     def __str__(self):
         return repr(self.msg)
+"""
 
 class NavegaPucv:
     def __init__(self, rut_num, rut_dv, user_pas):
@@ -192,10 +192,9 @@ class NavegaPucv:
                         pass 
 
                 i = i + 1
-            #print 'OK.'
         return lista
 
-
+"""
     def descargarFoto(self, rut):
         request = urllib2.Request("https://webun2prod.ucv.cl:8443/imagenapp/jpgservlet?rut=" + str(rut))
         self.CJ.add_cookie_header(request)
@@ -210,3 +209,4 @@ class NavegaPucv:
         except NoFotoError as e:
             print "%s %s" % (str(rut),e.msg)
             return False
+"""

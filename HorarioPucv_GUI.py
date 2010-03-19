@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from PyQt4 import QtCore, QtGui
-import re
-import urllib
-import urllib2
 import webbrowser
 import cookielib
 import data_rc
