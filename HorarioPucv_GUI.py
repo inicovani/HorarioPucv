@@ -117,6 +117,7 @@ class Ui_MainWindow(object):
         mb.setText("Tu horario se ha descargado correctamente.\nPresiona OK para verlo en tu explorador.")
         mb.setIcon(QtGui.QMessageBox.Information)
         mb.show()
+        self.password.clear()
         self.groupBox.setEnabled(1)
 
     def OKPresionado(self,boton):
