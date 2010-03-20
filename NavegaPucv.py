@@ -47,6 +47,15 @@ class NavegaPucv:
         self.periodo = ''
 
     def conectar(self):
+        """
+        Usando el rut y la contraseña entregados al crear la clase,
+        baja la pagina de login del navegador.
+        Usando una expresion regular revisa si el login fue correcto o
+        hubo un error.
+
+        Devuelve True en caso de una conexion exitosa
+        False en caso contrario
+        """
         request = urllib2.Request("https://nave10.ucv.cl/inicio/signon.php", self.params)
         f = urllib2.urlopen(request)
         text = f.read()
@@ -85,6 +94,7 @@ class NavegaPucv:
 
         self.periodo = periodo
 
+        # Aqui se extraen los datos para ver la pagina de cada curso.
         reCursos = re.compile("javascript:enviar_curso\('(\d+)','(\d+)','(\d+)','(\d+)','(\d+)'")
         cursos = reCursos.findall(texto)
         if not cursos:

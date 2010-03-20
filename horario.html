@@ -6,7 +6,20 @@
 		@import url("horario.css");
 	</style>
 	<script type="text/javascript" src="horario.js"></script>
+	<script type="text/javascript">
+			function showBox(text, obj) {
+				helpNode = document.createElement('div');
+				helpNode.id = 'popBox';
+				helpNode.setAttribute('class','popBox');
+				helpNode.innerHTML = text;
+				obj.appendChild(helpNode);
+			}
 
+		function hideBox() {
+	node = document.getElementById('popBox');
+	node.parentNode.removeChild(node);
+}
+</script>
  </HEAD>
 
  <BODY onLoad="cargarHorario()">
@@ -26,7 +39,7 @@
 			<TD class="titulo_td">S&aacute;bado</TD>
 		</TR>
 		<TR>
-			<TD class="titulo_td">1 - 2</TD>
+			<TD class="titulo_td">1 - 2<br><span class="hora">(08:15-09:45)</span></TD>
 			<TD id="1-1" class="td_inactivo"></TD>
 			<TD id="2-1" class="td_inactivo"></TD>
 			<TD id="3-1" class="td_inactivo"></TD>
@@ -35,7 +48,7 @@
 			<TD id="6-1" class="td_inactivo"></TD>
 		</TR>
 		<TR>
-			<TD class="titulo_td">3 - 4</TD>
+			<TD class="titulo_td">3 - 4<br><span class="hora">(10:00-11:30)</span></TD>
 			<TD id="1-3" class="td_inactivo"></TD>
 			<TD id="2-3" class="td_inactivo"></TD>
 			<TD id="3-3" class="td_inactivo"></TD>
@@ -44,7 +57,7 @@
 			<TD id="6-3" class="td_inactivo"></TD>
 		</TR>
 		<TR>
-			<TD class="titulo_td">5 - 6</TD>
+			<TD class="titulo_td">5 - 6<br><span class="hora">(11:45-13:15)</span></TD>
 			<TD id="1-5" class="td_inactivo"></TD>
 			<TD id="2-5" class="td_inactivo"></TD>
 			<TD id="3-5" class="td_inactivo"></TD>
@@ -53,7 +66,7 @@
 			<TD id="6-5" class="td_inactivo"></TD>
 		</TR>
 		<TR>
-			<TD class="titulo_td">7 - 8</TD>
+			<TD class="titulo_td">7 - 8<br><span class="hora">(14:00-15:30)</span></TD>
 			<TD id="1-7" class="td_inactivo"></TD>
 			<TD id="2-7" class="td_inactivo"></TD>
 			<TD id="3-7" class="td_inactivo"></TD>
@@ -62,7 +75,7 @@
 			<TD id="6-7" class="td_inactivo"></TD>
 		</TR>
 		<TR>
-			<TD class="titulo_td">9 - 10</TD>
+			<TD class="titulo_td">9 - 10<br><span class="hora">(15:40-17:10)</span></TD>
 			<TD id="1-9" class="td_inactivo"></TD>
 			<TD id="2-9" class="td_inactivo"></TD>
 			<TD id="3-9" class="td_inactivo"></TD>
@@ -71,7 +84,7 @@
 			<TD id="6-9" class="td_inactivo"></TD>
 		</TR>
 		<TR>
-			<TD class="titulo_td">11 - 12</TD>
+			<TD class="titulo_td">11 - 12<br><span class="hora">(17:20-18:50)</span></TD>
 			<TD id="1-11" class="td_inactivo"></TD>
 			<TD id="2-11" class="td_inactivo"></TD>
 			<TD id="3-11" class="td_inactivo"></TD>
@@ -80,7 +93,7 @@
 			<TD id="6-11" class="td_inactivo"></TD>
 		</TR>
 		<TR>
-			<TD class="titulo_td">13 - 14</TD>
+			<TD class="titulo_td">13 - 14<br><span class="hora">(19:00-20:30)</span></TD>
 			<TD id="1-13" class="td_inactivo"></TD>
 			<TD id="2-13" class="td_inactivo"></TD>
 			<TD id="3-13" class="td_inactivo"></TD>

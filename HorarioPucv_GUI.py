@@ -90,7 +90,8 @@ class Worker(QtCore.QThread):
             progreso = progreso + avancePorCurso
             self.emit(QtCore.SIGNAL("actProgreso(int)"), progreso)
 
-        fp.write('function cargarHorario()\n{\n\tvar sigla = \'<table width="80%" border="1" cellpadding="3" cellspacing="0" align="center"><tr><td class="titulo_td">Sigla</td><td class="titulo_td">Nombre Ramo</td></tr>\';\n\tfor(i=0;i < clases.length; i++)\n\t{\n\t\tid = clases[i][4]+\'-\'+clases[i][5];\n\t\tdocument.getElementById(id).innerHTML = clases[i][1] + \'<br>\'+clases[i][6];\n\t\tif(clases[i][3] == 1)\n\t\t\tdocument.getElementById(id).className = "td_catedra";\n\t\telse if(clases[i][3] == 2)\n\t\t\tdocument.getElementById(id).className = "td_ayudantia";\n\t}')
+        fp.write('function cargarHorario()\n{\n\tvar sigla = \'<table width="80%" border="1" cellpadding="3" cellspacing="0" align="center"><tr><td class="titulo_td">Sigla</td><td class="titulo_td">Nombre Ramo</td></tr>\';\n\t')
+        fp.write('for(i=0;i < clases.length; i++)\n\t{\n\t\tid = clases[i][4]+\'-\'+clases[i][5];\n\t\tdocument.getElementById(id).innerHTML = \'<div onmouseover="showBox(\\\'\'+clases[i][2]+\'\\\', this)" onmouseout="hideBox()">\'+clases[i][1] + \'<br>\'+clases[i][6]+\'</div>\';\n\t\tif(clases[i][3] == 1)\n\t\t\tdocument.getElementById(id).className = "td_catedra";\n\t\telse if(clases[i][3] == 2)\n\t\t\tdocument.getElementById(id).className = "td_ayudantia";\n\t}')
         fp.write('\n\tfor(i=0;i < ramos.length;i++)\n\t{\n\t\tsigla = sigla + \'<tr><td>\' + ramos[i][0] + \'</td><td>\' + ramos[i][1] + \'</td></tr>\';\n\t}')
         fp.write("\n\tdocument.getElementById('siglas').innerHTML = sigla;")
         fp.write("\n\tdocument.getElementById('version').innerHTML = version;")
