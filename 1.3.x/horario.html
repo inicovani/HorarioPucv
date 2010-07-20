@@ -7,6 +7,58 @@
 	</style>
 	<script type="text/javascript" src="horario.js"></script>
 	<script type="text/javascript">
+	var dias = ["Lunes", "Martes","Miercoles","Jueves","Viernes","Sabado"];
+	var bloques = new Array();
+	bloques['1'] = '1-2';
+	bloques['3'] = '3-4';
+	bloques['5'] = '5-6';
+	bloques['7'] = '7-8';
+	bloques['9'] = '9-10';
+	bloques['11'] = '11-12';
+	bloques['13'] = '13-14';
+
+	function cargarHorario()
+{
+    var sigla = '<table width="80%" border="1" cellpadding="3" cellspacing="0" align="center"><tr><td class="titulo_td">Sigla</td><td class="titulo_td">Nombre Ramo</td></tr>';
+    for(i=0;i < clases.length; i++)
+    {
+        id = clases[i][4]+'-'+clases[i][5];
+        document.getElementById(id).innerHTML = '<div onmouseover="showBox(\''+clases[i][2]+'\', this)" onmouseout="hideBox()">'+clases[i][1] + '<br>'+clases[i][6]+'</div>';
+        if(clases[i][3] == 1)
+            document.getElementById(id).className = "td_catedra";
+        else if(clases[i][3] == 2)
+            document.getElementById(id).className = "td_ayudantia";
+    }
+    var i;
+    var j;
+    var tabla_topes = document.getElementById('tabla_topes');
+    var buf = '<TABLE width="90%" border="1" cellpadding="0" cellspacing="0" align="center"><tr><td class="titulo_td" colspan="2">Detalle Topes de Horario</td></tr>';
+    for (i in topes)
+    {
+        id = topes[i][0][4]+'-'+topes[i][0][5];
+        document.getElementById(id).className = "td_tope";
+        buf += '<tr><td class="topes" rowspan="'+topes[i].length+'">'+ dias[topes[i][0][4]-1] + '<br><b>Bloque '+ bloques[topes[i][0][5]] +'</b></td>';
+        for(j in topes[i])
+        {
+            if(j != 0)
+                buf += '<tr>';
+            buf += '<td>'+topes[i][j][1]+' '+topes[i][j][2]+', Sala '+topes[i][j][6]+'</td>';
+            if(j == 0)
+                buf += '</tr>';
+        }
+        buf += '</tr>';
+    }
+    buf += '</table>';
+    tabla_topes.innerHTML = buf;
+    for(i=0;i < ramos.length;i++)
+    {
+        sigla = sigla + '<tr><td>' + ramos[i][0] + '</td><td>' + ramos[i][1] + '</td></tr>';
+    }
+    document.getElementById('siglas').innerHTML = sigla;
+    document.getElementById('version').innerHTML = version;
+    document.getElementById('periodo').innerHTML = periodo;
+}
+
 			function showBox(text, obj) {
 				helpNode = document.createElement('div');
 				helpNode.id = 'popBox';
