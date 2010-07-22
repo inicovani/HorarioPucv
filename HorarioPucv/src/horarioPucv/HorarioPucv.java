@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import javax.swing.*;
 
 import navegaPucv.*;
+
 import java.net.URI;
 
 public class HorarioPucv extends JPanel
@@ -81,7 +82,7 @@ public class HorarioPucv extends JPanel
         menu2 = new JMenu();
         menu2.setText("Ayuda");
         itemFAQ.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.ALT_MASK));
-        itemFAQ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/horariopucv/FAQ.png"))); // NOI18N
+        itemFAQ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/FAQ.png"))); // NOI18N
         itemFAQ.setText("Preguntas Frecuentes");
         itemFAQ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,11 +94,12 @@ public class HorarioPucv extends JPanel
                 }
             }
         });
+        
         menu2.add(itemFAQ);
 //        separador = new JPopupMenu.Separator();
         //menu2.add(separador);
         itemAbout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
-        itemAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/horariopucv/icono20.png"))); // NOI18N
+        itemAbout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/icono20.png"))); // NOI18N
         itemAbout.setText("Acerca de HorarioPucv");
         itemAbout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
