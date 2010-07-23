@@ -1,0 +1,28 @@
+body { margin: 0px;	padding: 0px;}
+a { color: #cc9900; text-decoration: none; }
+a:visited { color: #cc9900; text-decoration: none;}
+a:hover { color: #cc9900;  text-decoration: underline; }
+h1 { letter-spacing: 5px; word-spacing: 8px; }
+.titulo_td { font-family: Calibri, Arial; font-size:14px;color: #fc6; text-align: center; background: url(fondo_td_titulo.png) repeat}
+.hora{ font-size:12px;}
+/* horario */
+table td { height: 45px; text-align: center;font-family: Arial;font-size:11px; }
+.td_inactivo {  border-style: solid; border-width: 1; border-color: #000;}
+.td_catedra { width: 15%; background-color: #FF9933;}
+.td_ayudantia { width: 15%; background-color: #33CC33;}
+.td_ayudantiaColor { background-color: #33CC33;}
+.td_catedraColor { background-color: #FF9933;}
+.td_tope { width: 15%; background-color: #F00;}
+.tabla_topes_off { display: none;}
+.tabla_topes_on { display: inline;}
+.topes { background-color: #006699; color: #fc6;}
+.popBox {
+		position: absolute;
+		z-index: 2;
+		color: #fc6;
+		background: url(fondo_td_titulo.png) repeat;
+		padding: 0.3em;
+		border: 1px solid gray;
+	}
+/* inferior */
+.creditos { font-family: Helvetica; font-size:14px; text-align: center; color: #cc9900 }

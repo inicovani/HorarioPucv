@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "Generando JAR con recursos."
+jar -cvf Recursos.jar recursos
