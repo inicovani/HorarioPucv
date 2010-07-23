@@ -12,7 +12,7 @@ package navegaPucv;
 public class Config
 {
     public enum TipoBloque { NINGUNO, CATEDRA, AYUDANTIA }
-    public static String VERSION = "1.4.1b";
+    public static String VERSION = "1.4.2b";
 
     public static String capitalizeFirstLetters ( String s )
     {
