@@ -2,12 +2,16 @@ package horarioPucv;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
-
 import navegaPucv.*;
 
 import java.net.URI;
@@ -170,7 +174,6 @@ public class HorarioPucv extends JPanel
         add(panel);
 
         setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
-
     }
 
     /**
@@ -262,6 +265,17 @@ public class HorarioPucv extends JPanel
         // Muestro el dialogo para abrir la pagina en el explorador
         if(canceladoConError == false)
         {
+        	try
+        	{
+                extraerRecurso("horario.html");
+                extraerRecurso("horario.css");
+                extraerRecurso("fondo_td_titulo.png");
+                extraerRecurso("icono20.png");
+        	}
+        	catch (Exception ex)
+        	{
+        		Logger.getLogger(HorarioPucv.class.getName()).log(Level.SEVERE, null, ex);
+        	}
             if(JOptionPane.showConfirmDialog(parent, "Tu horario se ha descargado correctamente.\n¿Deseas ver el horario en tu explorador?",
                     "Información",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
             {
@@ -269,17 +283,42 @@ public class HorarioPucv extends JPanel
                 {
                     Desktop.getDesktop().browse(new URI("horario.html"));
                 }
-                catch (IOException ex)
+                catch (URISyntaxException ex)
                 {
                     Logger.getLogger(HorarioPucv.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                catch (URISyntaxException ex)
+                catch (Exception ex)
                 {
                     Logger.getLogger(HorarioPucv.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             
 
+        }
+    }
+    
+    public void extraerRecurso(String recurso) throws Exception
+    {
+        try
+        {
+        	File efile = new File(".", recurso);
+
+            InputStream in = this.getClass().getResourceAsStream("/recursos/" + recurso);
+            OutputStream out = new BufferedOutputStream(new FileOutputStream(efile));
+            byte[] buffer = new byte[2048];
+            for (;;)
+            {
+            	int nBytes = in.read(buffer);
+            	if (nBytes <= 0) break;
+            	out.write(buffer, 0, nBytes);
+            }
+            out.flush();
+            out.close();
+            in.close();
+        }
+        catch (Exception e)
+        {
+        	throw e;
         }
     }
 
