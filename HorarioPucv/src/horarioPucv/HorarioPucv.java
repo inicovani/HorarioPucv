@@ -48,7 +48,7 @@ public class HorarioPucv extends JPanel
     private JFrame parent;
 
     private URI uriFAQ;
-    //private tablaHorario panelHorario;
+    private tablaHorario panelHorario = new tablaHorario();;
     
     public HorarioPucv(JFrame parent)
     {
@@ -57,7 +57,8 @@ public class HorarioPucv extends JPanel
         this.parent = parent;
         try
         {
-            this.uriFAQ = new URI("http://wiki.github.com/inicovani/HorarioPucv/preguntas-frecuentes-acerca-de-horariopucv");
+          this.uriFAQ = 
+           	new URI("http://wiki.github.com/inicovani/HorarioPucv/preguntas-frecuentes-acerca-de-horariopucv");
         } catch (URISyntaxException ex)
         {
             Logger.getLogger(HorarioPucv.class.getName()).log(Level.SEVERE, null, ex);
@@ -168,9 +169,7 @@ public class HorarioPucv extends JPanel
         panel.add(taskOutput);
         panel.setVisible(true);
         
-        //panelHorario = new tablaHorario();
-
-        //add(panelHorario,BorderLayout.LINE_START);
+        add(panelHorario,BorderLayout.LINE_START);
         add(panel);
 
         setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
@@ -355,7 +354,8 @@ public class HorarioPucv extends JPanel
 
     public void nuevoBloque(BloqueHorario bloque)
     {
-       //this.panelHorario.setBloque(bloque);
+    	System.out.println("Nuevo bloque: " + bloque.getStrDia() + ", " + bloque.getBloque());
+       this.panelHorario.setBloque(bloque.getDia(),bloque.getIndiceBloque(), bloque.getTipoHorario().ordinal());
     }
 
 }
