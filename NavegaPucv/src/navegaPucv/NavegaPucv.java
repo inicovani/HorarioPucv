@@ -59,7 +59,7 @@ public class NavegaPucv extends SwingWorker<Void, Void>
         this.reLogin = Pattern.compile("<META CONTENT=\\\"0;URL=https://nave10.ucv.cl//alumno/fichas/ficha_consolidada.php\\\" HTTP-EQUIV=Refresh>");
         this.rePeriodo = Pattern.compile("<strong>Período:</strong>\\s*(.+?)&nbsp;");
         this.reListaCursos = Pattern.compile("javascript:enviar_curso\\('(\\d+)','(\\d+)','(\\d+)','(\\d+)','(\\d+)'");
-        this.reNombreCurso = Pattern.compile("class=\"w80\">\\s*?<strong>\\s*(.*?)&nbsp; &nbsp; &nbsp; (.*?)\\t*?</strong>");
+        this.reNombreCurso = Pattern.compile("class=\"w80\" colspan=\"2\">\\s*?<strong>\\s*(.*?)&nbsp; &nbsp; &nbsp; (.*?)\\t*?</strong>");
         this.reColumnas = Pattern.compile("<tr (?:class='color'){0,1}>(.+?)</tr>");
         this.reFilas = Pattern.compile("<td>(.*?)</td>");
         this.cookieValida = "";
@@ -252,7 +252,6 @@ public class NavegaPucv extends SwingWorker<Void, Void>
             {
                 String curso[] = {m.group(1),m.group(2),m.group(3),m.group(4),m.group(5)};
                 cursos.add(curso);
-                System.out.println("Curso encontrado con id " + curso[0]);
             }
             return cursos;
         }
